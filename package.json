@@ -1,16 +1,22 @@
 {
-  "name": "public_representatives",
+  "name": "public-representatives",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "A RESTful Node.js and Express API to manage public representatives by locality",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "nodejs",
+    "express",
+    "rest-api",
+    "backend",
+    "public-representatives"
+  ],
+  "author": "Prajwal Mhase",
+  "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.20.3",
-    "express": "^4.21.2"
-  },
-  "description": ""
+    "express": "^4.21.2",
+    "body-parser": "^1.20.3"
+  }
 }
