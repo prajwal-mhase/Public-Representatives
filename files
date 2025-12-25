@@ -1,0 +1,16 @@
+Public-Representatives/
+│
+├── app.js                # Express server (API + serves UI)
+├── package.json          # Project config & dependencies
+├── package-lock.json     # Auto-generated (do not edit)
+├── .gitignore            # Ignore node_modules, env files
+│
+└── public/               # Frontend (Dashboard UI)
+    │
+    ├── index.html        # Dashboard page (view + manage modal)
+    ├── style.css         # Complete dashboard styling
+    ├── script.js         # Dashboard logic + API calls
+    │
+    └── assets/           # (Optional, future-ready)
+        ├── icons/        # SVG icons (optional)
+        └── images/       # Logos / illustrations

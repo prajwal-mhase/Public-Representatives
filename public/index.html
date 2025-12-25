@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Public Representatives Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <h1>🏛 Public Representatives Dashboard</h1>
+    <button class="manage-btn" onclick="openModal()">Manage</button>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <div class="container">
+
+    <!-- SUMMARY CARDS -->
+    <div class="stats">
+      <div class="stat-card">
+        <h3>Total Representatives</h3>
+        <p id="totalReps">0</p>
+      </div>
+      <div class="stat-card">
+        <h3>Total Localities</h3>
+        <p id="totalLocalities">0</p>
+      </div>
+      <div class="stat-card">
+        <h3>MLAs</h3>
+        <p id="totalMLA">0</p>
+      </div>
+      <div class="stat-card">
+        <h3>MPs</h3>
+        <p id="totalMP">0</p>
+      </div>
+    </div>
+
+    <!-- DASHBOARD CARD -->
+    <div class="card">
+
+      <!-- CARD HEADER -->
+      <div class="card-header">
+        <h2>Representatives by Locality</h2>
+        <button onclick="loadDashboard()">Refresh</button>
+      </div>
+
+      <!-- FILTER BAR -->
+      <div class="filter-bar">
+        <input
+          type="text"
+          id="searchLocality"
+          placeholder="Search by locality..."
+          oninput="applyFilters()"
+        />
+
+        <select id="designationFilter" multiple onchange="applyFilters()">
+          <option value="MP">Member of Parliament (MP)</option>
+          <option value="MLA">Member of Legislative Assembly (MLA)</option>
+          <option value="Mayor">Mayor</option>
+          <option value="Nagar Sevak">Nagar Sevak</option>
+          <option value="Sarpanch">Sarpanch</option>
+          <option value="Up-Sarpanch">Up-Sarpanch</option>
+          <option value="Gram Panchayat Member">Gram Panchayat Member</option>
+          <option value="Panchayat Samiti Member">Panchayat Samiti Member</option>
+          <option value="Zila Parishad Member">Zila Parishad Member</option>
+        </select>
+      </div>
+
+      <!-- DASHBOARD GRID -->
+      <div id="dashboard" class="dashboard-grid">
+        <!-- Locality cards injected by script.js -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MANAGE MODAL -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+
+      <span class="close" onclick="closeModal()">&times;</span>
+
+      <h2>Manage Representatives</h2>
+
+      <!-- ADD REPRESENTATIVE -->
+      <h3>Add Representative</h3>
+
+      <input id="locality" placeholder="Locality (Village / City / Area)" />
+      <input id="name" placeholder="Full Name" />
+
+      <select id="designation">
+        <option value="">Select Designation</option>
+
+        <optgroup label="National Level">
+          <option value="MP">Member of Parliament (MP)</option>
+        </optgroup>
+
+        <optgroup label="State Level">
+          <option value="MLA">Member of Legislative Assembly (MLA)</option>
+        </optgroup>
+
+        <optgroup label="Urban Local Body">
+          <option value="Mayor">Mayor</option>
+          <option value="Nagar Sevak">Nagar Sevak</option>
+        </optgroup>
+
+        <optgroup label="Rural Local Body">
+          <option value="Sarpanch">Sarpanch</option>
+          <option value="Up-Sarpanch">Up-Sarpanch</option>
+          <option value="Gram Panchayat Member">Gram Panchayat Member</option>
+          <option value="Panchayat Samiti Member">Panchayat Samiti Member</option>
+          <option value="Zila Parishad Member">Zila Parishad Member</option>
+        </optgroup>
+      </select>
+
+      <input id="phone" placeholder="Phone (10 digits)" />
+      <input id="email" placeholder="Email" />
+
+      <button onclick="addRepresentative()">Add Representative</button>
+      <div id="addMsg"></div>
+
+      <hr />
+
+      <!-- DELETE REPRESENTATIVE -->
+      <h3>Delete Representative</h3>
+
+      <input id="deleteLocality" placeholder="Locality" />
+      <input id="deleteName" placeholder="Representative Name" />
+
+      <button class="danger" onclick="deleteRepresentative()">
+        Delete Representative
+      </button>
+      <div id="deleteMsg"></div>
+
+    </div>
+  </div>
+
+  <!-- SCRIPT -->
+  <script src="script.js"></script>
+
+</body>
+</html>
