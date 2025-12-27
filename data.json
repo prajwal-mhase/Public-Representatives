@@ -1,9 +1,4 @@
 {
-
-
-
-
-
   "kurukshetra": [
     {
       "name": "Naveen Jindal",
@@ -12,7 +7,6 @@
       "email": ""
     }
   ],
-
   "hisar": [
     {
       "name": "Jai Parkash",
@@ -21,7 +15,6 @@
       "email": ""
     }
   ],
-
   "sonipat": [
     {
       "name": "Satpal Brahamchari",
@@ -30,7 +23,6 @@
       "email": ""
     }
   ],
-
   "dhule": [
     {
       "name": "Bachhav Shobha Dinesh",
@@ -319,7 +311,6 @@
       "email": ""
     }
   ],
-
   "osmanabad": [
     {
       "name": "Omprakash Rajenimbalkar",
@@ -552,11 +543,6 @@
       "email": ""
     }
   ],
-
-
-
-
-
   "kochi municipal corporation": [
     {
       "name": "V K Minimol",
@@ -565,70 +551,9 @@
       "email": ""
     }
   ],
-
   "brihanmumbai municipal corporation": [
     {
       "name": "Tejaswi Abhishek Ghosalkar",
-      "designation": "Nagarsevak",
-      "phone": "",
-      "email": ""
-    },
-    {
-      "name": "Sheetal Mhatre",
-      "designation": "Nagarsevak",
-      "phone": "",
-      "email": ""
-    },
-    {
-      "name": "Bhalchandra Mhatre",
-      "designation": "Nagarsevak",
-      "phone": "",
-      "email": ""
-    },
-    {
-      "name": "Jagdish Karunashankar Oza",
-      "designation": "Nagarsevak",
-      "phone": "",
-      "email": ""
-    },
-    {
-      "name": "Balkrishna Jaysing Brid",
-      "designation": "Nagarsevak",
-      "phone": "",
-      "email": ""
-    },
-    {
-      "name": "Sujata Udesh Patekar",
-      "designation": "Nagarsevak",
-      "phone": "",
-      "email": ""
-    },
-    {
-      "name": "Sanjay Shankar Ghadi",
-      "designation": "Nagarsevak",
-      "phone": "",
-      "email": ""
-    },
-    {
-      "name": "Harshad Prakash Karkar",
-      "designation": "Nagarsevak",
-      "phone": "",
-      "email": ""
-    },
-    {
-      "name": "Sheetal Mukesh Mhatre",
-      "designation": "Nagarsevak",
-      "phone": "",
-      "email": ""
-    },
-    {
-      "name": "Harish Ravji Chheda",
-      "designation": "Nagarsevak",
-      "phone": "",
-      "email": ""
-    },
-    {
-      "name": "Shweta Sharad Korgaonkar",
       "designation": "Nagarsevak",
       "phone": "",
       "email": ""
@@ -714,6 +639,4 @@
       "email": ""
     }
   ]
-  
-
 }

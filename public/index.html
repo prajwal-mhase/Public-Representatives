@@ -13,7 +13,7 @@
 
 <!-- HEADER -->
 <header class="header">
-  <h1>🏛 Public Representatives</h1>
+<h1 style="text-align: center;">🏛 Public Representatives Data</h1>
   <button class="manage-btn" onclick="openModal()">Manage</button>
 </header>
 
@@ -61,26 +61,90 @@
       />
 
       <!-- SIMPLE DROPDOWN MULTISELECT -->
-      <details class="simple-dropdown">
-        <summary>Filter by Designation</summary>
+      <div class="simple-dropdown">
+  <button type="button" class="dropdown-btn">
+    Filter by Designation ▾
+  </button>
 
-        <div class="dropdown-list">
-          <label><input type="checkbox" value="MP" onchange="applyFilters()"> Member of Parliament (MP)</label>
-          <label><input type="checkbox" value="MLA" onchange="applyFilters()"> Member of Legislative Assembly (MLA)</label>
-          <label><input type="checkbox" value="Mayor" onchange="applyFilters()"> Mayor</label>
-          <label><input type="checkbox" value="Nagar Sevak" onchange="applyFilters()"> Nagar Sevak</label>
-          <label><input type="checkbox" value="Sarpanch" onchange="applyFilters()"> Sarpanch</label>
-          <label><input type="checkbox" value="Up-Sarpanch" onchange="applyFilters()"> Up-Sarpanch</label>
-          <label><input type="checkbox" value="Gram Panchayat Member" onchange="applyFilters()"> Gram Panchayat Member</label>
-          <label><input type="checkbox" value="Panchayat Samiti Member" onchange="applyFilters()"> Panchayat Samiti Member</label>
-          <label><input type="checkbox" value="Zila Parishad Member" onchange="applyFilters()"> Zila Parishad Member</label>
-        </div>
-      </details>
+  <div class="dropdown-list">
+    <label>
+      <input type="checkbox" value="MP" onchange="applyFilters()">
+      <span>Member of Parliament (MP)</span>
+    </label>
 
+    <label>
+      <input type="checkbox" value="MLA" onchange="applyFilters()">
+      <span>Member of Legislative Assembly (MLA)</span>
+    </label>
+
+    <label>
+      <input type="checkbox" value="Mayor" onchange="applyFilters()">
+      <span>Mayor</span>
+    </label>
+
+    <label>
+      <input type="checkbox" value="Nagar Sevak" onchange="applyFilters()">
+      <span>Nagar Sevak</span>
+    </label>
+
+    <label>
+      <input type="checkbox" value="Sarpanch" onchange="applyFilters()">
+      <span>Sarpanch</span>
+    </label>
+
+    <label>
+      <input type="checkbox" value="Up-Sarpanch" onchange="applyFilters()">
+      <span>Up-Sarpanch</span>
+    </label>
+
+    <label>
+      <input type="checkbox" value="Gram Panchayat Member" onchange="applyFilters()">
+      <span>Gram Panchayat Member</span>
+    </label>
+
+    <label>
+      <input type="checkbox" value="Panchayat Samiti Member" onchange="applyFilters()">
+      <span>Panchayat Samiti Member</span>
+    </label>
+
+    <label>
+      <input type="checkbox" value="Zila Parishad Member" onchange="applyFilters()">
+      <span>Zila Parishad Member</span>
+    </label>
+  </div>
+</div>
+
+    </div>
+
+    <!-- PAGINATION BAR -->
+    <div class="pagination-bar">
+      <div class="page-size">
+        Records per page:
+        <select id="pageSize" onchange="changePageSize()">
+          <option value="10">10</option>
+          <option value="100" selected>100</option>
+          <option value="1000">1000</option>
+        </select>
+      
+      </div>
+
+      <div class="pager">
+        <button onclick="prevPage()">⬅ Prev</button>
+        <span id="pageInfo">Page 1</span>
+        <button onclick="nextPage()">Next ➡</button>
+      </div>
     </div>
 
     <!-- DASHBOARD GRID -->
     <div id="dashboard" class="dashboard-grid"></div>
+    
+    
+    <div><br></div>
+    <div class="pager">
+        <button onclick="prevPage()">⬅ Prev</button>
+        <span id="pageInfoo">Page 1</span>
+        <button onclick="nextPage()">Next ➡</button>
+      </div>
 
   </div>
 </div>
@@ -120,67 +184,65 @@
         <option value="Zila Parishad Member">Zila Parishad Member</option>
       </select>
 
-      <input id="phone" placeholder="Phone" />
-      <input id="email" placeholder="Email" />
+      <input id="phone" placeholder="Phone (optional)" />
+      <input id="email" placeholder="Email (optional)" />
 
       <button onclick="addRepresentative()">Add</button>
       <div id="addMsg"></div>
     </div>
 
-<div id="editForm" class="manage-form hidden">
-  <h3>Edit Representative</h3>
+    <!-- EDIT FORM -->
+    <div id="editForm" class="manage-form hidden">
+      <h3>Edit Representative</h3>
 
-  <input
-    id="editSearch"
-    placeholder="Search by name..."
-    oninput="showEditSuggestions()"
-  />
-  <div id="editSuggestions" class="suggestions"></div>
+      <input id="editSearch" placeholder="Search by name..." oninput="showEditSuggestions()" />
+      <div id="editSuggestions" class="suggestions"></div>
 
-  <input id="editLocality" placeholder="Locality" disabled />
-  <input id="editName" placeholder="Full Name" />
+      <input id="editLocality" placeholder="Locality" disabled />
+      <input id="editName" placeholder="Full Name" />
 
-  <select id="editDesignation">
-    <option value="">Select Designation</option>
-    <option>MP</option>
-    <option>MLA</option>
-    <option>Mayor</option>
-    <option>Nagar Sevak</option>
-    <option>Sarpanch</option>
-    <option>Up-Sarpanch</option>
-    <option>Gram Panchayat Member</option>
-    <option>Panchayat Samiti Member</option>
-    <option>Zila Parishad Member</option>
-  </select>
+      <select id="editDesignation">
+        <option value="">Select Designation</option>
+        <option>MP</option>
+        <option>MLA</option>
+        <option>Mayor</option>
+        <option>Nagar Sevak</option>
+        <option>Sarpanch</option>
+        <option>Up-Sarpanch</option>
+        <option>Gram Panchayat Member</option>
+        <option>Panchayat Samiti Member</option>
+        <option>Zila Parishad Member</option>
+      </select>
 
-  <input id="editPhone" placeholder="Phone (optional)" />
-  <input id="editEmail" placeholder="Email (optional)" />
+      <input id="editPhone" placeholder="Phone (optional)" />
+      <input id="editEmail" placeholder="Email (optional)" />
 
-  <button onclick="updateRepresentative()">Save Changes</button>
-  <div id="editMsg"></div>
-</div>
+      <button onclick="updateRepresentative()">Save Changes</button>
+      <div id="editMsg"></div>
+    </div>
 
+    <!-- DELETE FORM -->
+    <div id="deleteForm" class="manage-form hidden">
+      <h3>Delete Representative</h3>
 
-<div id="deleteForm" class="manage-form hidden">
-  <h3>Delete Representative</h3>
+      <input id="deleteSearch" placeholder="Search by name..." oninput="showDeleteSuggestions()" />
+      <div id="deleteSuggestions" class="suggestions"></div>
 
-  <input
-    id="deleteSearch"
-    placeholder="Search by name..."
-    oninput="showDeleteSuggestions()"
-  />
-  <div id="deleteSuggestions" class="suggestions"></div>
-
-  <button class="danger" onclick="deleteRepresentative()">Delete</button>
-  <div id="deleteMsg"></div>
-</div>
-
+      <button class="danger" onclick="deleteRepresentative()">Delete</button>
+      <div id="deleteMsg"></div>
+    </div>
 
   </div>
 </div>
 
-
 <script src="script.js"></script>
-
 </body>
+<footer class="footer-note">
+  <p>
+    <strong>Disclaimer:</strong>
+    This dashboard is an informational, community-driven platform. Data shown here is collected from public sources and user inputs and may not be 100% accurate or up to date.<br>
+    This platform is not an official authority, and no responsibility is assumed for errors, omissions, or actions taken based on this information. Users are encouraged to independently verify details and contribute corrections via the <strong>Manage</strong>  option.
+  </p>
+</footer>
+
 </html>

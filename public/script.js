@@ -6,6 +6,13 @@ let editTarget = null;
 let deleteTarget = null;
 
 /* =========================
+   PAGINATION STATE
+========================= */
+let currentPage = 1;
+let pageSize = 100;
+let paginatedList = [];
+
+/* =========================
    MODAL CONTROLS
 ========================= */
 function openModal() {
@@ -47,12 +54,9 @@ async function loadDashboard() {
 }
 
 /* =========================
-   APPLY FILTERS
+   APPLY FILTERS (FLATTEN + SORT)
 ========================= */
 function applyFilters() {
-  const dashboard = document.getElementById("dashboard");
-  if (!dashboard) return;
-
   const searchText =
     document.getElementById("searchLocality")?.value.toLowerCase() || "";
 
@@ -60,29 +64,118 @@ function applyFilters() {
     document.querySelectorAll(".dropdown-list input:checked")
   ).map(cb => cb.value);
 
-  let filteredData = {};
+  let list = [];
 
   for (const locality in fullDataCache) {
     if (!locality.toLowerCase().includes(searchText)) continue;
 
-    const reps = fullDataCache[locality].filter(rep => {
-      if (selectedDesignations.length === 0) return true;
-      return selectedDesignations.includes(rep.designation);
+    fullDataCache[locality].forEach(rep => {
+      if (
+        selectedDesignations.length === 0 ||
+        selectedDesignations.includes(rep.designation)
+      ) {
+        list.push({ locality, ...rep });
+      }
     });
-
-    if (reps.length) filteredData[locality] = reps;
   }
 
-  if (!Object.keys(filteredData).length) {
-    dashboard.innerHTML = "<p>No matching results found.</p>";
-    return;
-  }
+  // Latest added / edited first
+  list.reverse();
 
-  renderDashboard(filteredData);
+  paginatedList = list;
+  currentPage = 1;
+
+  renderPaginatedData();
 }
 
 /* =========================
-   RENDER DASHBOARD
+   RENDER PAGINATED DATA
+========================= */
+function renderPaginatedData() {
+  const dashboard = document.getElementById("dashboard");
+  if (!dashboard) return;
+
+  const totalPages = Math.max(
+    1,
+    Math.ceil(paginatedList.length / pageSize)
+  );
+
+  if (currentPage > totalPages) currentPage = totalPages;
+
+  if (paginatedList.length === 0) {
+    dashboard.innerHTML = "<p>No matching results found.</p>";
+    updatePager(totalPages);
+    return;
+  }
+
+  const start = (currentPage - 1) * pageSize;
+  const end = start + pageSize;
+  const pageItems = paginatedList.slice(start, end);
+
+  let grouped = {};
+  pageItems.forEach(item => {
+    if (!grouped[item.locality]) grouped[item.locality] = [];
+    grouped[item.locality].push(item);
+  });
+
+  renderDashboard(grouped);
+  updatePager(totalPages);
+}
+
+/* =========================
+   PAGINATION CONTROLS
+========================= */
+function nextPage() {
+  const totalPages = Math.ceil(paginatedList.length / pageSize);
+  if (currentPage < totalPages) {
+    currentPage++;
+    renderPaginatedData();
+  }
+}
+
+function prevPage() {
+  if (currentPage > 1) {
+    currentPage--;
+    renderPaginatedData();
+  }
+}
+
+function changePageSize() {
+  pageSize = parseInt(document.getElementById("pageSize").value, 10);
+  currentPage = 1;
+  renderPaginatedData();
+}
+
+function updatePager(totalPages) {
+  const pageInfo = document.getElementById("pageInfo");
+  const pageInfoo = document.getElementById("pageInfoo");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  if (pageInfo) {
+    pageInfo.innerText = `Page ${currentPage} of ${totalPages}`;
+  }if (pageInfoo) {
+    pageInfoo.innerText = `Page ${currentPage} of ${totalPages}`;
+  }
+
+  if (prevBtn) {
+    prevBtn.disabled = currentPage === 1;
+  }
+
+  if (nextBtn) {
+    nextBtn.disabled = currentPage === totalPages;
+  }
+}
+
+
+function resetPagination() {
+  paginatedList = [];
+  currentPage = 1;
+  updatePager(1);
+}
+
+/* =========================
+   RENDER DASHBOARD (GROUPED)
 ========================= */
 function renderDashboard(data) {
   const dashboard = document.getElementById("dashboard");
@@ -230,7 +323,6 @@ async function updateRepresentative() {
   if (!editTarget) return;
 
   const body = {
-    locality: editTarget.locality,
     originalName: editTarget.name,
     name: document.getElementById("editName").value.trim(),
     designation: document.getElementById("editDesignation").value,
@@ -292,10 +384,7 @@ async function deleteRepresentative() {
     const res = await fetch("/api/representatives", {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        locality: deleteTarget.locality,
-        name: deleteTarget.name
-      })
+      body: JSON.stringify({ name: deleteTarget.name })
     });
 
     const data = await res.json();
