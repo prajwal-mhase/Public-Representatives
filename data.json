@@ -1,0 +1,719 @@
+{
+
+
+
+
+
+  "kurukshetra": [
+    {
+      "name": "Naveen Jindal",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+
+  "hisar": [
+    {
+      "name": "Jai Parkash",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+
+  "sonipat": [
+    {
+      "name": "Satpal Brahamchari",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+
+  "dhule": [
+    {
+      "name": "Bachhav Shobha Dinesh",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "jalgaon": [
+    {
+      "name": "Smita Wagh",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "raver": [
+    {
+      "name": "Raksha Khadse",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "buldhana": [
+    {
+      "name": "Prataprao Jadhav",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "akola": [
+    {
+      "name": "Anup Dhotre",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "amravati (sc)": [
+    {
+      "name": "Balwant Wankhade",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "wardha": [
+    {
+      "name": "Amar Kale",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "ramtek (sc)": [
+    {
+      "name": "Shyamkumar (Bablu) Barve",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "nagpur": [
+    {
+      "name": "Nitin Gadkari",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "bhandara-gondiya": [
+    {
+      "name": "Prashant Padole",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "gadchiroli-chimur (st)": [
+    {
+      "name": "Namdeo Kirsan",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "chandrapur": [
+    {
+      "name": "Pratibha Dhanorkar",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "yavatmal-washim": [
+    {
+      "name": "Sanjay Deshmukh",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "hingoli": [
+    {
+      "name": "Nagesh Aashtikar Patil",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "parbhani": [
+    {
+      "name": "Sanjay Jadhav",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "jalna": [
+    {
+      "name": "Kalyan Kale",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "aurangabad": [
+    {
+      "name": "Sandipanrao Bhumre",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "dindori (st)": [
+    {
+      "name": "Bhaskar Bhagare",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "nashik": [
+    {
+      "name": "Rajabhau Waje",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "palghar (st)": [
+    {
+      "name": "Hemant Savara",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "bhiwandi": [
+    {
+      "name": "Suresh Mhatre",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "kalyan": [
+    {
+      "name": "Shrikant Shinde",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "thane": [
+    {
+      "name": "Naresh Mhaske",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "mumbai north": [
+    {
+      "name": "Piyush Goyal",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "mumbai north west": [
+    {
+      "name": "Ravindra Waikar",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "mumbai north east": [
+    {
+      "name": "Sanjay Dina Patil",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "mumbai north central": [
+    {
+      "name": "Varsha Gaikwad",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "mumbai south central": [
+    {
+      "name": "Anil Desai",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "mumbai south": [
+    {
+      "name": "Arvind Sawant",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "raigad": [
+    {
+      "name": "Sunil Tatkare",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "maval": [
+    {
+      "name": "Shrirang Barne",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "pune": [
+    {
+      "name": "Murlidhar Mohol",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "baramati": [
+    {
+      "name": "Supriya Sule",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "shirur": [
+    {
+      "name": "Amol Kolhe",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "ahmednagar": [
+    {
+      "name": "Nilesh Lanke",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "shirdi (sc)": [
+    {
+      "name": "Bhausaheb Wakchaure",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+
+  "osmanabad": [
+    {
+      "name": "Omprakash Rajenimbalkar",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "latur (sc)": [
+    {
+      "name": "Shivaji Kalge",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "solapur (sc)": [
+    {
+      "name": "Praniti Shinde",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "madha": [
+    {
+      "name": "Dhairyasheel Mohite Patil",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "sangli": [
+    {
+      "name": "Vishal Patil",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "satara": [
+    {
+      "name": "Udayanraje Bhosale",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "ratnagiri-sindhudurg": [
+    {
+      "name": "Narayan Rane",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "kolhapur": [
+    {
+      "name": "Shahu Chhatrapati Maharaj",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "hatkanangle": [
+    {
+      "name": "Dhairyasheel Mane",
+      "designation": "MP",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "akkalkuwa": [
+    {
+      "name": "Amshya Padvi",
+      "designation": "MLA",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "shahada": [
+    {
+      "name": "Rajesh Padvi",
+      "designation": "MLA",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "nandurbar": [
+    {
+      "name": "Vijaykumar Gavit",
+      "designation": "MLA",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "navapur": [
+    {
+      "name": "Shirishkumar Naik",
+      "designation": "MLA",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "arjuni morgaon": [
+    {
+      "name": "Manohar Chandrikapure",
+      "designation": "MLA",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "tirora": [
+    {
+      "name": "Vijay Rehangdale",
+      "designation": "MLA",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "amgaon": [
+    {
+      "name": "Maruti Karote",
+      "designation": "MLA",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "armori": [
+    {
+      "name": "Krishna Gajbe",
+      "designation": "MLA",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "gadchiroli": [
+    {
+      "name": "Devrao Holi",
+      "designation": "MLA",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "aheri": [
+    {
+      "name": "Dharmaraobaba Atram",
+      "designation": "MLA",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "achalpur": [
+    {
+      "name": "Pravin Vasantrao Tayde",
+      "designation": "MLA",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "arvi": [
+    {
+      "name": "Dr. Bhushan Bopche",
+      "designation": "MLA",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "ausa": [
+    {
+      "name": "Abdul Sattar Abdul Nabi",
+      "designation": "MLA",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "wadgaon": [
+    {
+      "name": "Anil Bhausaheb Chaughule",
+      "designation": "MLA",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "attur": [
+    {
+      "name": "Ganpatrao Dighole",
+      "designation": "MLA",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "beed": [
+    {
+      "name": "Jaydutt Keshavraorao Dhotre",
+      "designation": "MLA",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "bhor": [
+    {
+      "name": "Ashok Shankarrao Chavan",
+      "designation": "MLA",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "dhule city": [
+    {
+      "name": "Shirishkumar Babanrao Naik",
+      "designation": "MLA",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "kalyan east": [
+    {
+      "name": "Raju Sahani",
+      "designation": "MLA",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "thiruvananthapuram municipal corporation": [
+    {
+      "name": "V V Rajesh",
+      "designation": "Mayor",
+      "phone": "",
+      "email": ""
+    }
+  ],
+
+
+
+
+
+  "kochi municipal corporation": [
+    {
+      "name": "V K Minimol",
+      "designation": "Mayor",
+      "phone": "",
+      "email": ""
+    }
+  ],
+
+  "brihanmumbai municipal corporation": [
+    {
+      "name": "Tejaswi Abhishek Ghosalkar",
+      "designation": "Nagarsevak",
+      "phone": "",
+      "email": ""
+    },
+    {
+      "name": "Sheetal Mhatre",
+      "designation": "Nagarsevak",
+      "phone": "",
+      "email": ""
+    },
+    {
+      "name": "Bhalchandra Mhatre",
+      "designation": "Nagarsevak",
+      "phone": "",
+      "email": ""
+    },
+    {
+      "name": "Jagdish Karunashankar Oza",
+      "designation": "Nagarsevak",
+      "phone": "",
+      "email": ""
+    },
+    {
+      "name": "Balkrishna Jaysing Brid",
+      "designation": "Nagarsevak",
+      "phone": "",
+      "email": ""
+    },
+    {
+      "name": "Sujata Udesh Patekar",
+      "designation": "Nagarsevak",
+      "phone": "",
+      "email": ""
+    },
+    {
+      "name": "Sanjay Shankar Ghadi",
+      "designation": "Nagarsevak",
+      "phone": "",
+      "email": ""
+    },
+    {
+      "name": "Harshad Prakash Karkar",
+      "designation": "Nagarsevak",
+      "phone": "",
+      "email": ""
+    },
+    {
+      "name": "Sheetal Mukesh Mhatre",
+      "designation": "Nagarsevak",
+      "phone": "",
+      "email": ""
+    },
+    {
+      "name": "Harish Ravji Chheda",
+      "designation": "Nagarsevak",
+      "phone": "",
+      "email": ""
+    },
+    {
+      "name": "Shweta Sharad Korgaonkar",
+      "designation": "Nagarsevak",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "gram panchayat kalsuli": [
+    {
+      "name": "Sachin Punaji Pardhiye",
+      "designation": "Sarpanch",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "gram panchayat 188164": [
+    {
+      "name": "Bhikaji Yashwant Shingare",
+      "designation": "Sarpanch",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "aase gram panchayat": [
+    {
+      "name": "Ananta Balu Maule",
+      "designation": "Sarpanch",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "aadoshi gram panchayat": [
+    {
+      "name": "Balu Jayaram Ghatal",
+      "designation": "Sarpanch",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "bariste gram panchayat": [
+    {
+      "name": "Hiraman Devram Maule",
+      "designation": "Sarpanch",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "chas gram panchayat": [
+    {
+      "name": "Priyanka Sandeep Govind",
+      "designation": "Sarpanch",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "dhamanshet gram panchayat": [
+    {
+      "name": "Suresh Tukaram Dhinde",
+      "designation": "Sarpanch",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "gomghar gram panchayat": [
+    {
+      "name": "Sulochan Pravin Gare",
+      "designation": "Sarpanch",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "hirve gram panchayat": [
+    {
+      "name": "Hiraman Narayan Patil",
+      "designation": "Sarpanch",
+      "phone": "",
+      "email": ""
+    }
+  ],
+  "kasti gram panchayat": [
+    {
+      "name": "Gauri Ramesh Botte",
+      "designation": "Sarpanch",
+      "phone": "",
+      "email": ""
+    }
+  ]
+  
+
+}

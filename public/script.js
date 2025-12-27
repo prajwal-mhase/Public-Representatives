@@ -1,35 +1,39 @@
 /* =========================
-   GLOBAL CACHE
+   GLOBAL DATA CACHE
 ========================= */
 let fullDataCache = {};
+let editTarget = null;
+let deleteTarget = null;
 
 /* =========================
    MODAL CONTROLS
 ========================= */
 function openModal() {
-  document.getElementById('modal').style.display = 'flex';
+  document.getElementById("modal").style.display = "flex";
 }
 
 function closeModal() {
-  document.getElementById('modal').style.display = 'none';
+  document.getElementById("modal").style.display = "none";
 }
 
 /* =========================
-   DASHBOARD LOADER
+   LOAD DASHBOARD DATA
 ========================= */
 async function loadDashboard() {
-  const dashboard = document.getElementById('dashboard');
-  dashboard.innerHTML = 'Loading...';
+  const dashboard = document.getElementById("dashboard");
+  if (!dashboard) return;
+
+  dashboard.innerHTML = "Loading...";
 
   try {
-    const res = await fetch('/api/representatives');
+    const res = await fetch("/api/representatives");
     const data = await res.json();
 
     fullDataCache = data;
 
     if (!Object.keys(data).length) {
       dashboard.innerHTML =
-        '<p>No representatives added yet. Click <strong>Manage</strong> to get started.</p>';
+        "<p>No representatives added yet. Click <strong>Manage</strong> to get started.</p>";
       updateStats(0, 0, 0, 0);
       return;
     }
@@ -38,7 +42,7 @@ async function loadDashboard() {
     calculateStats(data);
   } catch (err) {
     console.error(err);
-    dashboard.innerHTML = 'Error loading dashboard';
+    dashboard.innerHTML = "Error loading dashboard";
   }
 }
 
@@ -46,15 +50,15 @@ async function loadDashboard() {
    APPLY FILTERS
 ========================= */
 function applyFilters() {
-  const dashboard = document.getElementById('dashboard');
-  const searchText = document
-    .getElementById('searchLocality')
-    .value
-    .toLowerCase();
+  const dashboard = document.getElementById("dashboard");
+  if (!dashboard) return;
+
+  const searchText =
+    document.getElementById("searchLocality")?.value.toLowerCase() || "";
 
   const selectedDesignations = Array.from(
-    document.getElementById('designationFilter').selectedOptions
-  ).map(opt => opt.value);
+    document.querySelectorAll(".dropdown-list input:checked")
+  ).map(cb => cb.value);
 
   let filteredData = {};
 
@@ -66,13 +70,11 @@ function applyFilters() {
       return selectedDesignations.includes(rep.designation);
     });
 
-    if (reps.length > 0) {
-      filteredData[locality] = reps;
-    }
+    if (reps.length) filteredData[locality] = reps;
   }
 
-  if (Object.keys(filteredData).length === 0) {
-    dashboard.innerHTML = '<p>No matching results found.</p>';
+  if (!Object.keys(filteredData).length) {
+    dashboard.innerHTML = "<p>No matching results found.</p>";
     return;
   }
 
@@ -83,61 +85,54 @@ function applyFilters() {
    RENDER DASHBOARD
 ========================= */
 function renderDashboard(data) {
-  const dashboard = document.getElementById('dashboard');
-  let html = '';
+  const dashboard = document.getElementById("dashboard");
+  if (!dashboard) return;
+
+  let html = "";
 
   for (const locality in data) {
-    html += `
-      <div class="locality-card">
-        <h3>${locality.toUpperCase()}</h3>
-    `;
+    html += `<div class="locality-card">
+      <h3>${locality.toUpperCase()}</h3>`;
 
     data[locality].forEach(rep => {
-      html += `
-        <div class="rep-item">
-          <strong>${formatName(rep.name)}</strong>
-          <span class="badge">${rep.designation}</span><br>
-          📞 ${rep.phone}<br>
-          ✉️ ${rep.email}
-        </div>
-      `;
+      html += `<div class="rep-item">
+        <strong>${formatName(rep.name)}</strong>
+        <span class="badge">${rep.designation}</span><br>
+        ${rep.phone ? `📞 ${rep.phone}<br>` : ""}
+        ${rep.email ? `✉️ ${rep.email}` : ""}
+      </div>`;
     });
 
-    html += `</div>`;
+    html += "</div>";
   }
 
   dashboard.innerHTML = html;
 }
 
 /* =========================
-   STATS CALCULATION
+   DASHBOARD STATS
 ========================= */
 function calculateStats(data) {
-  let total = 0;
-  let mla = 0;
-  let mp = 0;
+  let total = 0,
+    mla = 0,
+    mp = 0;
 
   for (const locality in data) {
     data[locality].forEach(rep => {
       total++;
-      if (rep.designation === 'MLA') mla++;
-      if (rep.designation === 'MP') mp++;
+      if (rep.designation === "MLA") mla++;
+      if (rep.designation === "MP") mp++;
     });
   }
 
-  updateStats(
-    total,
-    Object.keys(data).length,
-    mla,
-    mp
-  );
+  updateStats(total, Object.keys(data).length, mla, mp);
 }
 
 function updateStats(total, localities, mla, mp) {
-  document.getElementById('totalReps').innerText = total;
-  document.getElementById('totalLocalities').innerText = localities;
-  document.getElementById('totalMLA').innerText = mla;
-  document.getElementById('totalMP').innerText = mp;
+  document.getElementById("totalReps").innerText = total;
+  document.getElementById("totalLocalities").innerText = localities;
+  document.getElementById("totalMLA").innerText = mla;
+  document.getElementById("totalMP").innerText = mp;
 }
 
 /* =========================
@@ -145,78 +140,173 @@ function updateStats(total, localities, mla, mp) {
 ========================= */
 async function addRepresentative() {
   const body = {
-    locality: document.getElementById('locality').value.trim(),
-    name: document.getElementById('name').value.trim(),
-    designation: document.getElementById('designation').value,
-    phone: document.getElementById('phone').value.trim(),
-    email: document.getElementById('email').value.trim()
+    locality: document.getElementById("locality").value.trim(),
+    name: document.getElementById("name").value.trim(),
+    designation: document.getElementById("designation").value,
+    phone: document.getElementById("phone").value.trim(),
+    email: document.getElementById("email").value.trim()
   };
 
-  const addMsg = document.getElementById('addMsg');
+  const addMsg = document.getElementById("addMsg");
 
-  if (!body.locality || !body.name || !body.designation || !body.phone || !body.email) {
-    addMsg.innerHTML = '<div class="error">All fields are required</div>';
+  if (!body.locality || !body.name || !body.designation) {
+    addMsg.innerHTML =
+      "<div class='error'>Locality, name, and designation are required</div>";
     return;
   }
 
   try {
-    const res = await fetch('/api/representatives', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    const res = await fetch("/api/representatives", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body)
     });
 
     const data = await res.json();
-    addMsg.innerHTML = `<div class="${res.ok ? 'success' : 'error'}">${data.message}</div>`;
+    addMsg.innerHTML = `<div class="${res.ok ? "success" : "error"}">${data.message}</div>`;
 
     if (res.ok) {
-      document.getElementById('locality').value = '';
-      document.getElementById('name').value = '';
-      document.getElementById('designation').value = '';
-      document.getElementById('phone').value = '';
-      document.getElementById('email').value = '';
+      ["locality", "name", "designation", "phone", "email"].forEach(
+        id => (document.getElementById(id).value = "")
+      );
       loadDashboard();
     }
-  } catch (err) {
-    console.error(err);
-    addMsg.innerHTML = '<div class="error">Server error</div>';
+  } catch {
+    addMsg.innerHTML = "<div class='error'>Server error</div>";
+  }
+}
+
+/* =========================
+   MANAGE MODAL FORM CONTROL
+========================= */
+function showForm(type) {
+  ["addForm", "editForm", "deleteForm"].forEach(id =>
+    document.getElementById(id)?.classList.add("hidden")
+  );
+
+  document.getElementById("addMsg").innerHTML = "";
+  document.getElementById("editMsg").innerHTML = "";
+  document.getElementById("deleteMsg").innerHTML = "";
+
+  if (type === "add") document.getElementById("addForm").classList.remove("hidden");
+  if (type === "edit") document.getElementById("editForm").classList.remove("hidden");
+  if (type === "delete") document.getElementById("deleteForm").classList.remove("hidden");
+}
+
+/* =========================
+   EDIT REPRESENTATIVE
+========================= */
+function showEditSuggestions() {
+  const query = document.getElementById("editSearch").value.toLowerCase();
+  const box = document.getElementById("editSuggestions");
+  box.innerHTML = "";
+
+  if (!query) return;
+
+  getAllRepresentatives()
+    .filter(r => r.name.toLowerCase().includes(query))
+    .forEach(r => {
+      const div = document.createElement("div");
+      div.textContent = `${r.name} (${r.locality})`;
+      div.onclick = () => selectEditRepresentative(r);
+      box.appendChild(div);
+    });
+}
+
+function selectEditRepresentative(rep) {
+  editTarget = rep;
+
+  document.getElementById("editSearch").value = rep.name;
+  document.getElementById("editLocality").value = rep.locality;
+  document.getElementById("editName").value = rep.name;
+  document.getElementById("editDesignation").value = rep.designation;
+  document.getElementById("editPhone").value = rep.phone || "";
+  document.getElementById("editEmail").value = rep.email || "";
+
+  document.getElementById("editSuggestions").innerHTML = "";
+}
+
+async function updateRepresentative() {
+  if (!editTarget) return;
+
+  const body = {
+    locality: editTarget.locality,
+    originalName: editTarget.name,
+    name: document.getElementById("editName").value.trim(),
+    designation: document.getElementById("editDesignation").value,
+    phone: document.getElementById("editPhone").value.trim(),
+    email: document.getElementById("editEmail").value.trim()
+  };
+
+  const msg = document.getElementById("editMsg");
+
+  try {
+    const res = await fetch("/api/representatives", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body)
+    });
+
+    const data = await res.json();
+    msg.innerHTML = `<div class="${res.ok ? "success" : "error"}">${data.message}</div>`;
+
+    if (res.ok) {
+      editTarget = null;
+      loadDashboard();
+    }
+  } catch {
+    msg.innerHTML = "<div class='error'>Server error</div>";
   }
 }
 
 /* =========================
    DELETE REPRESENTATIVE
 ========================= */
+function showDeleteSuggestions() {
+  const query = document.getElementById("deleteSearch").value.toLowerCase();
+  const box = document.getElementById("deleteSuggestions");
+  box.innerHTML = "";
+
+  if (!query) return;
+
+  getAllRepresentatives()
+    .filter(r => r.name.toLowerCase().includes(query))
+    .forEach(r => {
+      const div = document.createElement("div");
+      div.textContent = `${r.name} (${r.locality})`;
+      div.onclick = () => {
+        deleteTarget = r;
+        document.getElementById("deleteSearch").value = r.name;
+        box.innerHTML = "";
+      };
+      box.appendChild(div);
+    });
+}
+
 async function deleteRepresentative() {
-  const body = {
-    locality: document.getElementById('deleteLocality').value.trim(),
-    name: document.getElementById('deleteName').value.trim()
-  };
+  if (!deleteTarget) return;
 
-  const deleteMsg = document.getElementById('deleteMsg');
-
-  if (!body.locality || !body.name) {
-    deleteMsg.innerHTML = '<div class="error">Locality and name are required</div>';
-    return;
-  }
+  const msg = document.getElementById("deleteMsg");
 
   try {
-    const res = await fetch('/api/representatives', {
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body)
+    const res = await fetch("/api/representatives", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        locality: deleteTarget.locality,
+        name: deleteTarget.name
+      })
     });
 
     const data = await res.json();
-    deleteMsg.innerHTML = `<div class="${res.ok ? 'success' : 'error'}">${data.message}</div>`;
+    msg.innerHTML = `<div class="${res.ok ? "success" : "error"}">${data.message}</div>`;
 
     if (res.ok) {
-      document.getElementById('deleteLocality').value = '';
-      document.getElementById('deleteName').value = '';
+      deleteTarget = null;
       loadDashboard();
     }
-  } catch (err) {
-    console.error(err);
-    deleteMsg.innerHTML = '<div class="error">Server error</div>';
+  } catch {
+    msg.innerHTML = "<div class='error'>Server error</div>";
   }
 }
 
@@ -224,17 +314,24 @@ async function deleteRepresentative() {
    HELPERS
 ========================= */
 function formatName(name) {
-  if (!name) return '';
   return name
     .toLowerCase()
-    .split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
+    .split(" ")
+    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+}
+
+function getAllRepresentatives() {
+  const list = [];
+  for (const locality in fullDataCache) {
+    fullDataCache[locality].forEach(rep =>
+      list.push({ locality, ...rep })
+    );
+  }
+  return list;
 }
 
 /* =========================
    INITIAL LOAD
 ========================= */
-window.onload = () => {
-  loadDashboard();
-};
+window.onload = loadDashboard;
