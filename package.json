@@ -1,23 +1,30 @@
 {
   "name": "public-representatives-dashboard",
   "version": "1.1.0",
-  "description": "A full-stack Express.js dashboard application to view and manage public representatives across national, state, urban, and rural governance levels",
+  "description": "A community-driven web platform to browse, search, filter, and manage public representatives across parliamentary, legislative, municipal, and local governance levels using a simple Express.js backend and file-based persistence.",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
   "keywords": [
+    "public-representatives",
+    "civic-information",
+    "civic-tech",
+    "local-governance",
+    "municipal-data",
+    "legislative-assembly",
+    "parliament-members",
+    "community-dashboard",
     "nodejs",
     "express",
-    "dashboard",
-    "civic-tech",
-    "public-representatives",
-    "admin-panel",
-    "government",
-    "local-governance"
-  ],
+    "full-stack-app",
+    "open-data"
+    ],
   "author": "Prajwal Mhase",
   "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
     "express": "^4.21.2",
     "cors": "^2.8.5"

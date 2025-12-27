@@ -1,4 +1,4 @@
-# Node modules
+# Node dependencies
 node_modules/
 
 # Logs
@@ -9,7 +9,7 @@ yarn-error.log*
 # Environment variables
 .env
 
-# OS files
+# OS generated files
 .DS_Store
 Thumbs.db
 
@@ -23,3 +23,7 @@ build/
 
 # Coverage reports
 coverage/
+
+# Optional: local backups
+*.bak
+*.tmp

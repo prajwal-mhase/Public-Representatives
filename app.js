@@ -13,8 +13,12 @@ const DATA_FILE = path.join(__dirname, "data.json");
 
 function loadData() {
   try {
+    if (!fs.existsSync(DATA_FILE)) {
+      fs.writeFileSync(DATA_FILE, JSON.stringify({}, null, 2));
+    }
     return JSON.parse(fs.readFileSync(DATA_FILE, "utf8"));
-  } catch {
+  } catch (err) {
+    console.error("Error loading data:", err);
     return {};
   }
 }
@@ -49,7 +53,9 @@ app.get("/api/representatives", (req, res) => {
   res.json(representativesData);
 });
 
-// Add representative
+// =========================
+// ADD REPRESENTATIVE
+// =========================
 app.post("/api/representatives", (req, res) => {
   let { locality, name, designation, phone, email } = req.body;
 
@@ -118,7 +124,7 @@ app.post("/api/representatives", (req, res) => {
 });
 
 // =========================
-// UPDATE (EDIT) REPRESENTATIVE — GLOBAL SEARCH
+// UPDATE REPRESENTATIVE (GLOBAL SEARCH)
 // =========================
 app.put("/api/representatives", (req, res) => {
   const { originalName, name, designation, phone, email } = req.body;
@@ -170,7 +176,7 @@ app.put("/api/representatives", (req, res) => {
 });
 
 // =========================
-// DELETE REPRESENTATIVE — GLOBAL SEARCH
+// DELETE REPRESENTATIVE (GLOBAL SEARCH)
 // =========================
 app.delete("/api/representatives", (req, res) => {
   const { name } = req.body;
@@ -222,5 +228,5 @@ app.get("*", (req, res) => {
    START SERVER
 ========================= */
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+  console.log(`Server running on port ${port}`);
 });
