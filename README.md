@@ -136,9 +136,6 @@ Users are encouraged to independently verify details and contribute corrections 
 
 ---
 
-## 👤 Author
-
-**Prajwal Mhase**
-GitHub: [https://github.com/prajwal-mhase](https://github.com/prajwal-mhase)
+### 👤 Author: [**Prajwal Mhase**](https://github.com/prajwal-mhase)
 
 ---
