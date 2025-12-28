@@ -31,10 +31,11 @@ This project centralizes that data into a single, easy-to-use dashboard to impro
 - **Responsive Interface**  
   Optimized for desktop and mobile devices for easy access anywhere.
 
-- **Data Management (Support Feature)**  
+- **Data Management**  
   Add, update, and delete representative records to keep information relevant and accurate.
 
 ### 📂 Representatives Directory
+
 - Organized by locality  
 - Supports multiple governance levels:
   - Member of Parliament (MP)
@@ -65,64 +66,79 @@ This project centralizes that data into a single, easy-to-use dashboard to impro
 
 ## 📂 Project Structure
 
-Public-Representatives/
-├── public/
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-├── data.json
-├── app.js
-├── package.json
-├── package-lock.json
-├── .gitignore
+
+Public-Representatives/<br>
+├── public/<br>
+│   ├── index.html<br>
+│   ├── style.css<br>
+│   └── script.js<br>
+├── data.json<br>
+├── app.js<br>
+├── package.json<br>
+├── package-lock.json<br>
+├── .gitignore<br>
 └── README.md
+
 
 ---
 
 ## 🚀 Getting Started (Local Setup)
 
 ### 1️⃣ Clone the repository
-```git clone https://github.com/prajwal-mhase/Public-Representatives.git```
 
-```cd Public-Representatives```
+```bash
+git clone https://github.com/prajwal-mhase/Public-Representatives.git
+````
+
+```bash
+cd Public-Representatives
+```
 
 ### 2️⃣ Install dependencies
-```npm install```
+
+```bash
+npm install
+```
 
 ### 3️⃣ Start the server
-```npm start```
+
+```bash
+npm start
+```
 
 ### 4️⃣ Open in browser
-```http://localhost:3000```
+
+```text
+http://localhost:3000
+```
 
 ---
 
 ## 🔌 API Endpoints
 
-| Method | Endpoint               | Description               |
-|-------:|------------------------|---------------------------|
-| GET    | /api/health            | API health check          |
-| GET    | /api/representatives   | Fetch all representatives|
-| POST   | /api/representatives   | Add a representative      |
-| PUT    | /api/representatives   | Update a representative   |
-| DELETE | /api/representatives   | Delete a representative   |
+| Method | Endpoint             | Description               |
+| -----: | -------------------- | ------------------------- |
+|    GET | /api/health          | API health check          |
+|    GET | /api/representatives | Fetch all representatives |
+|   POST | /api/representatives | Add a representative      |
+|    PUT | /api/representatives | Update a representative   |
+| DELETE | /api/representatives | Delete a representative   |
 
 ---
 
-⚠️ Disclaimer
+## ⚠️ Disclaimer
 
 This dashboard is an informational, community-driven platform.
 Data is collected from public sources and user inputs and may not be 100% accurate or up to date.
 
 This platform is not an official authority, and no responsibility is assumed for errors, omissions, or actions taken based on this information.
-Users are encouraged to independently verify details and contribute corrections using the Manage option.
-
+Users are encouraged to independently verify details and contribute corrections using the **Manage** option.
 
 ---
 
-👤 Author
+## 👤 Author
 
-Prajwal Mhase
-GitHub: https://github.com/prajwal-mhase
+**Prajwal Mhase**
+GitHub: [https://github.com/prajwal-mhase](https://github.com/prajwal-mhase)
 
 ---
